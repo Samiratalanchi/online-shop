@@ -59,17 +59,17 @@ const Slider = () => {
             {/* Previous Button */}
             <div
                 onClick={handlePrev}
-                className="w-0 h-0 border-l-[30px] border-l-white hover:border-l-orange-300 border-t-transparent border-b-transparent absolute top-1/2 left-0 transform -translate-y-1/2 cursor-pointer flex items-center justify-center"
+                className="w-0 h-0 border-30 border-l-white hover:border-l-orange-300 hover:text-white border-t-transparent border-b-transparent border-r-transparent absolute top-1/2 left-0 transform -translate-y-1/2 cursor-pointer flex items-center justify-center"
             >
-                <GrFormPrevious className="absolute -left-6 text-sm text-black" />
+                <GrFormPrevious className="absolute -left-6 text-sm" />
             </div>
 
             {/* Next Button */}
             <div
                 onClick={handleNext}
-                className="w-0 h-0 border-r-[30px] border-r-white hover:border-r-orange-300 border-t-transparent border-b-transparent absolute top-1/2 right-0 transform -translate-y-1/2 cursor-pointer flex items-center justify-center"
+                className="w-0 h-0 border-30 border-r-white hover:border-r-orange-300 hover:text-white border-t-transparent border-b-transparent border-l-transparent absolute top-1/2 right-0 transform -translate-y-1/2 cursor-pointer flex items-center justify-center"
             >
-                <GrFormNext className="absolute -right-6 text-sm text-black" />
+                <GrFormNext className="absolute -right-6 text-sm" />
             </div>
 
             {/* Animated Text Section */}
@@ -120,7 +120,7 @@ const Slider = () => {
                     initial={{ opacity: 0, y: 80 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut", delay: 1.1 }}
-                    className="border border-gray-700 bg-gray-100 px-3 py-1 mt-4 md:text-sm text-xs hover:bg-orange-300 hover:text-white hover:border-amber-400"
+                    className="border border-gray-700 bg-gray-100 px-3 py-1 mt-4 md:text-sm text-xs hover:bg-orange-300 hover:text-white hover:border-amber-400 cursor-pointer"
                 >
                     SHOP NOW
                 </motion.button>
