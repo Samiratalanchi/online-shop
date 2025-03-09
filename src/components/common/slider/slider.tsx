@@ -28,15 +28,17 @@ const Slider = () => {
 
     return (
         <div id="default-carousel" className="relative w-full" data-carousel="slide">
-            <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <div className="relative w-full aspect-[16/9] md:aspect-[16/7] lg:aspect-[16/6] overflow-hidden rounded-lg">
                 {slider.map((item, index) => (
-                    <div
+                    <motion.div
                         key={index}
-                        className={`duration-700 ease-in-out ${currentSlide === index ? 'block' : 'hidden'}`}
-                        data-carousel-item
+                        className={`absolute w-full h-full top-0 left-0 ${currentSlide === index ? 'block' : 'hidden'}`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: currentSlide === index ? 1 : 0 }}
+                        transition={{ duration: 1, ease: "easeInOut" }}
                     >
-                        <img src={item} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={`Slide ${index + 1}`} />
-                    </div>
+                        <img src={item} className="w-full h-full object-cover" alt={`Slide ${index + 1}`} />
+                    </motion.div>
                 ))}
             </div>
 
@@ -73,14 +75,14 @@ const Slider = () => {
             {/* Animated Text Section */}
             <motion.div
                 key={currentSlide} // Triggers re-render when slide changes
-                className="absolute left-2/3 top-1/5 text-gray-700 -translate-x-1/2"
+                className="absolute md:left-2/3 md:top-1/5 left-3/5 top-1/3 text-gray-700 -translate-x-1/2"
             >
                 {/* Subtitle Animation */}
                 <motion.h2
                     initial={{ opacity: 0, y: 200 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-                    className="text-lg uppercase"
+                    className="text-lg uppercase hidden md:block"
                 >
                     Welcome to Our
                 </motion.h2>
@@ -90,17 +92,17 @@ const Slider = () => {
                     initial={{ opacity: 0, y: 180 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-                    className="text-5xl font-bold"
+                    className="text-5xl font-bold hidden md:block"
                 >
-                    Elegant
+                    ELEGNAT
                 </motion.h1>
                 <motion.h1
                     initial={{ opacity: 0, y: 170 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
-                    className="text-5xl font-bold"
+                    className="md:text-5xl font-bold text-xl"
                 >
-                    Furniture
+                    FURNITURE
                 </motion.h1>
 
                 {/* Paragraph Animation */}
@@ -108,7 +110,7 @@ const Slider = () => {
                     initial={{ opacity: 0, y: 160 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
-                    className="text-xs w-80 mx-auto text-justify mt-2"
+                    className="text-xs md:w-80 mx-auto text-justify mt-2 hidden md:block"
                 >
                     There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words that don't look even slightly believable.
                 </motion.p>
@@ -118,7 +120,7 @@ const Slider = () => {
                     initial={{ opacity: 0, y: 80 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut", delay: 1.1 }}
-                    className="border border-gray-700 bg-gray-100 px-3 py-1 mt-4 text-sm hover:bg-orange-300 hover:text-white hover:border-amber-400"
+                    className="border border-gray-700 bg-gray-100 px-3 py-1 mt-4 md:text-sm text-xs hover:bg-orange-300 hover:text-white hover:border-amber-400"
                 >
                     SHOP NOW
                 </motion.button>
