@@ -1,9 +1,12 @@
+import Slider from "../../components/common/slider/slider"
 import HeaderLayout from "../../components/headerLayout/headerLayout"
 
 const Home = () => {
     return (
         <HeaderLayout>
-            <main>HomePage</main>
+            <main>
+                <Slider />
+            </main>
         </HeaderLayout>
         
     )
