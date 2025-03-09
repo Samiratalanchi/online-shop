@@ -3,7 +3,7 @@ import HeaderLayout from "../../components/headerLayout/headerLayout"
 const Home = () => {
     return (
         <HeaderLayout>
-            <div>HomePage</div>
+            <main>HomePage</main>
         </HeaderLayout>
         
     )
