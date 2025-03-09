@@ -12,6 +12,7 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "@tailwindcss/vite": "^4.0.12",
+    "framer-motion": "^12.4.10",
     "localforage": "^1.10.0",
     "match-sorter": "^8.0.0",
     "react": "^19.0.0",
