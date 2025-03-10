@@ -14,7 +14,7 @@ const Banner = () => {
                 </div>
                 <button className="text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 absolute lg:right-5 right-8 bottom-5">Buy now</button>
             </div>
-            <div className="relative w-5/6 md:w-auto hover:shadow-xl">
+            <div className="relative w-5/6 md:w-auto hover:shadow-xl cursor-pointer">
                 <img src={bannerB} className="md:w-auto w-full object-cover" />
                 <div className="absolute left-1/2 top-1/3 font-bold hover:text-amber-300 text-sm lg:text-xl">
                     <a href="">
