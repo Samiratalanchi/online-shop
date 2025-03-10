@@ -12,7 +12,15 @@ const Banner = () => {
                     <a href=""><p className="text-sm font-bold hover:text-amber-300">ProductName</p></a>
                     <p className="text-xs">Category</p>
                 </div>
-                <button className="text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 absolute lg:right-5 right-8 bottom-5">Buy now</button>
+                <div className="absolute lg:right-5 right-8 bottom-5">
+                    <button className="text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 relative group overflow-hidden">
+                        Buy now
+                        <span className="absolute left-[-100%] top-0 bottom-0 bg-amber-500 text-white px-2 py-1 transition-all duration-300 group-hover:left-0 w-full flex justify-center items-center">
+                            Buy now
+                        </span>
+                    </button>
+                </div>
+            
             </div>
             <div className="relative w-5/6 md:w-auto hover:shadow-xl cursor-pointer">
                 <img src={bannerB} className="md:w-auto w-full object-cover" />

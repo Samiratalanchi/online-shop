@@ -88,7 +88,12 @@ const ProductGrid = ({rows, title}:{rows:number, title:string}) => {
                                     <div className="absolute text-sm right-3 top-3">${item.price}</div>
                                 </div>
                                 <h1 className="text-center font-medium">{item.name}</h1>
-                                <button className="text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 rounded-md">Buy now</button>
+                                <button className="relative group text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 overflow-hidden">
+                                    Buy now
+                                    <span className="absolute left-[-100%] top-0 bottom-0 bg-amber-500 text-white px-2 py-1 transition-all duration-300 group-hover:left-0 w-full">
+                                        Buy now
+                                    </span>
+                                </button>
                             </div>
                         ))}
                     </div>
