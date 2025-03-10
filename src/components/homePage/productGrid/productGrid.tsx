@@ -10,11 +10,12 @@ import product9 from "../../../images/product9.jpg"
 import product10 from "../../../images/product10.jpg"
 import product11 from "../../../images/product11.jpg"
 import product12 from "../../../images/product12.jpg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const ProductGrid = ({rows, title}:{rows:number, title:string}) => {
 
     const [startPoint , setStartPoint] = useState(0)
+    const [itemsPerRow, setItemsPerRow] = useState(4)
 
     const products = [
         {name: "Product Name", price: 56000 , badge: "New", pic: product1 },
@@ -47,42 +48,57 @@ const ProductGrid = ({rows, title}:{rows:number, title:string}) => {
             return [...products.slice(startIndex, products.length), ...products.slice(0, endIndex % products.length)];
         }
     };
+
+    useEffect(() => {
+        const updateItemsPerRow = () => {
+            if (window.innerWidth < 640) {
+                setItemsPerRow(1);
+            } else if (window.innerWidth < 768) {
+                setItemsPerRow(2);
+            } else if (window.innerWidth < 1024) {
+                setItemsPerRow(3);
+            } else {
+                setItemsPerRow(4);
+            }
+        };
+        updateItemsPerRow();
+        window.addEventListener("resize", updateItemsPerRow);
+        return () => window.removeEventListener("resize", updateItemsPerRow);
+    }, []);
     
 
     return (
-        <div className="my-15">
+        <div className="my-15 w-full">
             <div className="text-center font-bold text-2xl">{title}</div>
 
-            <div className="flex md:flex-row flex-col justify-center items-center gap-x-6 gap-y-6 my-10">
-                {[...Array(rows)].map((_, row) => (
-                    <div key={row} className="flex flex-row items-center gap-x-3">
-                        <button onClick={handlePrev} className={`bg-white text-[10px] text-gray-700 hover:bg-orange-300 hover:text-white cursor-pointer px-2 py-1 text-center border border-gray-300 ${rows === 2 && "hidden"}`}>
-                            <p>p</p>
-                            <p>r</p>
-                            <p>e</p>
-                            <p>v</p>
-                        </button>
-                        <div className="flex flex-row gap-x-2 items-center">
-                            {getDisplayedProducts(startPoint, 4).map((item, index) => (
-                                <div key={index} className="flex flex-col gap-y-3 p-2 bg-white">
-                                    <div className="relative">
-                                        <img src={item.pic} />
-                                        <div className={`absolute text-[10px] rounded-md py-1 px-2 text-white ${item.badge == "New" ? "bg-amber-300" : "bg-red-400"}  left-3 top-3`}>{item.badge}</div>
-                                        <div className="absolute text-sm right-3 top-3">{item.price}</div>
-                                    </div>
-                                    <h1 className="text-center">{item.name}</h1>
-                                    <button className="text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 mb-2">Buy now</button>
+            <div className="flex flex-col justify-center items-center my-10">
+                <div className="flex flex-row items-center lg:gap-x-3 gap-x-0 w-full justify-center">
+                    <button onClick={handlePrev} className="bg-white text-[10px] text-gray-700 hover:bg-orange-300 hover:text-white cursor-pointer px-2 py-1 text-center border border-gray-300">
+                        <p>p</p>
+                        <p>r</p>
+                        <p>e</p>
+                        <p>v</p>
+                    </button>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full max-w-6xl items-center">
+                        {getDisplayedProducts(startPoint,itemsPerRow).map((item, index) => (
+                            <div key={index} className="flex flex-col gap-y-3 p-3 bg-white shadow-md rounded-lg">
+                                <div className="relative">
+                                    <img src={item.pic} className="object-cover w-full" />
+                                    <div className={`absolute text-[10px] rounded-md py-1 px-2 text-white ${item.badge === "New" ? "bg-amber-300" : "bg-red-400"} left-3 top-3`}>{item.badge}</div>
+                                    <div className="absolute text-sm right-3 top-3">${item.price}</div>
                                 </div>
-                            ))}
-                        </div>
-                        <button onClick={handleNext} className={`bg-white text-[10px] text-gray-700 hover:bg-orange-300 hover:text-white cursor-pointer px-2 py-1 text-center border border-gray-300 ${rows === 2 && "hidden"}`}>
-                            <p>n</p>
-                            <p>e</p>
-                            <p>x</p>
-                            <p>t</p>
-                        </button>
+                                <h1 className="text-center font-medium">{item.name}</h1>
+                                <button className="text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 rounded-md">Buy now</button>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                    <button onClick={handleNext} className="bg-white text-[10px] text-gray-700 hover:bg-orange-300 hover:text-white cursor-pointer px-2 py-1 text-center border border-gray-300">
+                        <p>n</p>
+                        <p>e</p>
+                        <p>x</p>
+                        <p>t</p>
+                    </button>
+                </div>
             </div>
         </div>
     );
