@@ -34,10 +34,20 @@ const ProductGrid = ({rows, title}:{rows:number, title:string}) => {
     const handlePrev = () => {
         setStartPoint((prev) => (prev === 0 ? products.length - 1 : prev - 1));
     };
-
+    
     const handleNext = () => {
-        setStartPoint((prev) => (prev === products.length - 1 ? 0 : prev + 1));
+        setStartPoint((prev) => (prev + 1) % products.length);
     };
+    
+    const getDisplayedProducts = (startIndex: number, count: number) => {
+        const endIndex = startIndex + count;
+        if (endIndex <= products.length) {
+            return products.slice(startIndex, endIndex);
+        } else {
+            return [...products.slice(startIndex, products.length), ...products.slice(0, endIndex % products.length)];
+        }
+    };
+    
 
     return (
         <div className="my-15">
@@ -53,15 +63,15 @@ const ProductGrid = ({rows, title}:{rows:number, title:string}) => {
                             <p>v</p>
                         </button>
                         <div className="flex flex-row gap-x-2 items-center">
-                            {products.slice(startPoint,4).map((item) => (
-                                <div className="flex flex-col gap-y-3 p-2 bg-white">
+                            {getDisplayedProducts(startPoint, 4).map((item, index) => (
+                                <div key={index} className="flex flex-col gap-y-3 p-2 bg-white">
                                     <div className="relative">
                                         <img src={item.pic} />
                                         <div className={`absolute text-[10px] rounded-md py-1 px-2 text-white ${item.badge == "New" ? "bg-amber-300" : "bg-red-400"}  left-3 top-3`}>{item.badge}</div>
                                         <div className="absolute text-sm right-3 top-3">{item.price}</div>
                                     </div>
                                     <h1 className="text-center">{item.name}</h1>
-                                    <button className="text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300">Buy now</button>
+                                    <button className="text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 mb-2">Buy now</button>
                                 </div>
                             ))}
                         </div>
