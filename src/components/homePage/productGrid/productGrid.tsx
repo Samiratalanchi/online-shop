@@ -79,11 +79,11 @@ const ProductGrid = ({rows, title}:{rows:number, title:string}) => {
                         <p>e</p>
                         <p>v</p>
                     </button>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full max-w-6xl items-center">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:w-full w-4/5 max-w-6xl items-center">
                         {getDisplayedProducts(startPoint,itemsPerRow).map((item, index) => (
-                            <div key={index} className="flex flex-col gap-y-3 p-3 bg-white shadow-md rounded-lg">
+                            <div key={index} className="flex flex-col gap-y-3 p-3 bg-white shadow-md rounded-lg cursor-pointer hover:shadow-xl">
                                 <div className="relative">
-                                    <img src={item.pic} className="object-cover w-full" />
+                                    <img src={item.pic} className="w-full" />
                                     <div className={`absolute text-[10px] rounded-md py-1 px-2 text-white ${item.badge === "New" ? "bg-amber-300" : "bg-red-400"} left-3 top-3`}>{item.badge}</div>
                                     <div className="absolute text-sm right-3 top-3">${item.price}</div>
                                 </div>
