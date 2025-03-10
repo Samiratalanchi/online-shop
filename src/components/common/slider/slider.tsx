@@ -1,4 +1,3 @@
-import '@mdi/font/css/materialdesignicons.min.css';
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import slider1 from "../../../images/slider1.jpg";
