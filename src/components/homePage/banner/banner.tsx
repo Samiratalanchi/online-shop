@@ -3,7 +3,7 @@ import bannerB from "../../../images/banner-b.jpg"
 
 const Banner = () => {
     return (
-        <div className="flex md:flex-row flex-col justify-center items-center gap-x-6 gap-y-6 mb-10">
+        <div className="flex md:flex-row flex-col justify-center items-center gap-x-6 gap-y-6 my-10">
             <div className="relative w-5/6 md:w-auto hover:shadow-xl cursor-pointer">
                 <img src={bannerS} className="md:w-auto w-full object-cover" />
                 <div className="rounded-md text-white bg-amber-300 text-xs px-2 py-1 absolute lg:left-5 left-8 top-5">New</div>
