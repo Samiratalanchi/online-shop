@@ -16,7 +16,6 @@ const Home = () => {
                 <ProductGrid title="Purchase Online" />
             </main>
         </HeaderLayout>
-        
     )
 }
 

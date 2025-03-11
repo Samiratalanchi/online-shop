@@ -1,6 +1,7 @@
 import { FaShoppingCart } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
 import logo from "../../images/logo.png"
+import Footer from "../footer/footer";
 
 const HeaderLayout = ({ children } : {children : React.ReactNode} ) => {
     return (
@@ -24,6 +25,7 @@ const HeaderLayout = ({ children } : {children : React.ReactNode} ) => {
                 </div>
             </div>
             {children}
+            <Footer />
         </>
         
     )
