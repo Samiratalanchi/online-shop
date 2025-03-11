@@ -6,7 +6,7 @@ import Footer from "../footer/footer";
 const HeaderLayout = ({ children } : {children : React.ReactNode} ) => {
     return (
         <>
-            <div className="inset-x-0 flex w-full flex-row bg-white h-20 relative">
+            <div className="inset-x-0 top-0 flex z-50 w-full flex-row bg-white h-20 relative fixed">
                 <div className="flex grow gap-y-0 overflow-x-auto px-8 justify-between items-center text-2xl">
                     <button className="cursor-pointer text-3xl">
                         <IoMenu />
