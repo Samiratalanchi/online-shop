@@ -92,7 +92,7 @@ const DiscountBanner = () => {
                     <div className="rounded-full w-10 h-10 border border-red-400 content-center">0</div>
                     <div className="rounded-full w-10 h-10 border border-red-400 content-center">0</div>
                 </div>
-                <div className="flex flex-row gap-x-5 justify-center text-xs">
+                <div className="flex flex-row gap-x-8 justify-center text-xs">
                     <div className="">Days</div>
                     <div className="">Hour</div>
                     <div className="">Min</div>

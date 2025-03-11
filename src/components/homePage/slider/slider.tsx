@@ -20,9 +20,9 @@ const Slider = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentSlide((prev) => (prev === slider.length - 1 ? 0 : prev + 1));
-        }, 5000); // Change slide every 5 sec
+        }, 5000); 
 
-        return () => clearInterval(interval); // Cleanup on unmount
+        return () => clearInterval(interval); 
     }, []);
 
     return (
@@ -41,7 +41,7 @@ const Slider = () => {
                 ))}
             </div>
 
-            {/* Slide Indicators */}
+            
             <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-11/12 space-x-3 rtl:space-x-reverse">
                 {slider.map((_, index) => (
                     <button
@@ -55,7 +55,7 @@ const Slider = () => {
                 ))}
             </div>
 
-            {/* Previous Button */}
+            
             <div
                 onClick={handlePrev}
                 className="w-0 h-0 border-30 border-l-white hover:border-l-orange-300 hover:text-white border-t-transparent border-b-transparent border-r-transparent absolute top-1/2 left-0 transform -translate-y-1/2 cursor-pointer flex items-center justify-center"
@@ -63,7 +63,7 @@ const Slider = () => {
                 <GrFormPrevious className="absolute -left-6 text-sm" />
             </div>
 
-            {/* Next Button */}
+            
             <div
                 onClick={handleNext}
                 className="w-0 h-0 border-30 border-r-white hover:border-r-orange-300 hover:text-white border-t-transparent border-b-transparent border-l-transparent absolute top-1/2 right-0 transform -translate-y-1/2 cursor-pointer flex items-center justify-center"
@@ -71,12 +71,11 @@ const Slider = () => {
                 <GrFormNext className="absolute -right-6 text-sm" />
             </div>
 
-            {/* Animated Text Section */}
+            
             <motion.div
-                key={currentSlide} // Triggers re-render when slide changes
+                key={currentSlide} 
                 className="absolute md:left-2/3 md:top-1/5 left-3/5 top-1/3 text-gray-700 -translate-x-1/2"
             >
-                {/* Subtitle Animation */}
                 <motion.h2
                     initial={{ opacity: 0, y: 200 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -86,7 +85,6 @@ const Slider = () => {
                     Welcome to Our
                 </motion.h2>
 
-                {/* Main Title Animation */}
                 <motion.h1
                     initial={{ opacity: 0, y: 180 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -104,7 +102,6 @@ const Slider = () => {
                     FURNITURE
                 </motion.h1>
 
-                {/* Paragraph Animation */}
                 <motion.p
                     initial={{ opacity: 0, y: 160 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -114,14 +111,16 @@ const Slider = () => {
                     There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words that don't look even slightly believable.
                 </motion.p>
 
-                {/* Button Animation */}
                 <motion.button
                     initial={{ opacity: 0, y: 80 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut", delay: 1.1 }}
-                    className="border border-gray-700 bg-gray-100 px-3 py-1 mt-4 md:text-sm text-xs hover:bg-orange-300 hover:text-white hover:border-amber-400 cursor-pointer"
+                    className="border border-gray-300 bg-gray-100 px-3 py-1 mt-4 md:text-sm text-xs group overflow-hidden cursor-pointer relative"
                 >
                     SHOP NOW
+                        <span className="absolute left-[-100%] top-0 bottom-0 bg-amber-500 text-white px-2 py-1 transition-all duration-300  group-hover:left-0 w-full flex justify-center items-center">
+                            SHOP NOW
+                        </span>
                 </motion.button>
             </motion.div>
         </div>
