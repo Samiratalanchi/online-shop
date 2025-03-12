@@ -19,11 +19,11 @@ const HeaderLayout = ({ children } : {children : React.ReactNode} ) => {
 
     return (
         <>
-            <div className="inset-x-0 top-0 flex z-50 w-full flex-row bg-white h-20 relative fixed">
+            <div className="inset-x-0 top-0 flex z-50 w-full flex-row bg-white h-20 md:sticky">
                 <div className="flex grow gap-y-0 overflow-x-auto px-8 justify-between items-center text-2xl">
                     {/* Menu Button */}
                     <button
-                        className="cursor-pointer text-3xl"
+                        className="cursor-pointer text-3xl hidden md:flex"
                         data-collapse-toggle="leftSideMenu"
                         aria-controls="leftSideMenu"
                         aria-expanded={isMenuOpen}
@@ -34,7 +34,7 @@ const HeaderLayout = ({ children } : {children : React.ReactNode} ) => {
                         <IoMenu />
                     </button>
                     {/* Menu Section */}
-                    <div className={`fixed inset-y-0 left-0 top-0 z-1000 w-60 bg-white rounded-lg shadow-md transition-transform duration-300 ${
+                    <div className={`fixed hidden md:flex inset-y-0 left-0 top-0 z-1000 w-60 bg-white rounded-lg shadow-md transition-transform duration-300 ${
                         isMenuOpen ? "translate-x-0" : "-translate-x-full"
                     }`} id="leftSideMenu">
                         <div className="flex flex-col gap-y-8 grow overflow-y-auto max-h-screen">
@@ -49,10 +49,10 @@ const HeaderLayout = ({ children } : {children : React.ReactNode} ) => {
                             <div className="text-sm">
                                 <ul className="flex flex-col gap-y-2">
                                     {MenuItems.map((item,index) => (
-                                        <li key={index} className=" px-5 py-2 cursor-pointer group overflow-hidden relative">
+                                        <li key={index} className="px-5 py-2 cursor-pointer group overflow-hidden relative">
                                             <a href={item.link}>
                                                 {item.title}
-                                                <span className="absolute px-5 left-[-100%] top-0 bottom-0 bg-amber-500 text-white px-2 py-1 transition-all duration-300 group-hover:left-0 w-full flex items-center">
+                                                <span className="absolute px-5 left-[-100%] top-0 bottom-0 bg-amber-500 text-white py-1 transition-all duration-300 group-hover:left-0 w-full flex items-center">
                                                     {item.title}
                                                 </span>
                                             </a>
@@ -60,7 +60,6 @@ const HeaderLayout = ({ children } : {children : React.ReactNode} ) => {
                                     ))}
                                 </ul>
                             </div>
-                            
                         </div>
                     </div>
                     {/* Logo Section*/}
@@ -77,6 +76,30 @@ const HeaderLayout = ({ children } : {children : React.ReactNode} ) => {
                             <span>02</span>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className={`inset-x-0 top-0 flex w-full flex-col text-white bg-amber-400 relative md:hidden px-2 py-4 gap-y-2 items-center`}>
+                <div className="flex flex-row justify-between w-full px-8 ">
+                    <h1>MENU</h1>
+                    <button
+                        className="cursor-pointer text-3xl"
+                        data-collapse-toggle="leftSideMenu"
+                        aria-controls="leftSideMenu"
+                        aria-expanded={isMenuOpen}
+                        onClick={() => {
+                            setMenuOpen(!isMenuOpen);
+                        }}
+                    >
+                        {!isMenuOpen ? <IoMenu /> : <IoMdClose /> }
+                        
+                    </button>
+                </div>
+                <div className={`flex flex-col gap-y-0 bg-white w-full text-black ${!isMenuOpen && "hidden"}`}>
+                    {MenuItems.map((item,index) => (
+                        <div key={index} className="border border-gray-300 px-4 py-2 text-xs hover:text-amber-300 cursor-pointer">
+                            <a href={item.link}>{item.title}</a>
+                        </div>
+                    ))}
                 </div>
             </div>
             {children}
