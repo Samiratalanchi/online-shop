@@ -7,8 +7,8 @@ const Footer = () => {
 
     return (
         <div className="w-full bg-gray-200 h-auto flex flex-col items-center">
-            <div className="px-5 lg:px-0 max-w-6xl w-full py-20 flex flex-col sm:grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-y-8 sm:gap-y-5">
-                <div className="w-full md:col-span-1 lg:col-span-1">
+            <div className="px-5 lg:px-0 max-w-6xl w-full py-20 flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-y-8 sm:gap-y-5">
+                <div className="w-full sm:col-span-2 md:col-span-2 lg:col-span-2">
                     <h1 className="mb-5">Contact US</h1>
                     <div className="flex flex-col gap-y-3 text-xs text-gray-500">
                         <div className="flex flex-row items-center gap-x-1">
@@ -25,7 +25,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full md:col-span-1 lg:col-span-1">
+                <div className="w-full sm:col-span-1 md:col-span-1 lg:col-span-1">
                     <h1 className="mb-5">ACCOUNTS</h1>
                     <ul className="text-xs text-gray-500">
                         {accountslist.map((item) => (
@@ -36,7 +36,7 @@ const Footer = () => {
                         ))}
                     </ul>
                 </div>
-                <div className="w-full md:col-span-1 lg:col-span-1">
+                <div className="w-full sm:col-span-1 md:col-span-1 lg:col-span-1">
                     <h1 className="mb-5">SHIPPING</h1>
                     <ul className="text-xs text-gray-500">
                         {shippinglist.map((item) => (
@@ -47,7 +47,7 @@ const Footer = () => {
                         ))}
                     </ul>
                 </div>
-                <div className="w-full flex flex-col md:col-span-3 lg:col-span-1">
+                <div className="w-full flex flex-col sm:col-span-2 md:col-span-4 lg:col-span-2">
                     <h1 className="mb-5">MOBILE NEWSLETTER</h1>
                     <input type="text" placeholder="Enter your number" className="w-full h-10 bg-white text-xs max-w-sm pl-4 mb-4"/>
                     <button type="button" className="px-4 py-2 w-30 bg-white text-xs relative group overflow-hidden cursor-pointer">
