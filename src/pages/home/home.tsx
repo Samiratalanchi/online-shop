@@ -4,16 +4,18 @@ import Banner from "../../components/homePage/banner/banner"
 import FeaturedProduct from "../../components/homePage/featuredProduct/featuredProduct"
 import DiscountBanner from "../../components/homePage/discountBanner/discountBanner"
 import ProductGrid from "../../components/homePage/productGrid/productGrid"
+import BrandBox from "../../components/homePage/brandBox/brandBox"
 
 const Home = () => {
     return (
         <HeaderLayout>
-            <main>
+            <main className="relative">
                 <Slider />
                 <Banner />
                 <FeaturedProduct title="Featured Products" />
                 <DiscountBanner />
                 <ProductGrid title="Purchase Online" />
+                <BrandBox />
             </main>
         </HeaderLayout>
     )

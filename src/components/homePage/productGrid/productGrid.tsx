@@ -26,7 +26,7 @@ const FeaturedProduct = ({title}:{title:string}) => {
     const tabs = ["New Arrivals", "Best Seller", "Most View", "Discounts"]
 
     return (
-        <div className="my-15 w-full">
+        <div className="my-15 mb-30 w-full">
         <div className="text-center font-bold text-2xl">{title}</div>
         <ul className="list-none text-xs flex flex-row gap-x-5 justify-center my-5 ">
             {tabs.map((tab) => (
