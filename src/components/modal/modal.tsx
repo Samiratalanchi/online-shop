@@ -4,6 +4,7 @@ import product2 from "../../images/product2.jpg"
 import product3 from "../../images/product3.jpg"
 import product4 from "../../images/product4.jpg"
 import { MdDelete } from "react-icons/md"
+import Button from "../common/button"
 
 const BuyBoxModal = () => {
 
@@ -38,6 +39,13 @@ const BuyBoxModal = () => {
                     </div>
                 ))}
             <div/>
+            <div className=" text-sm border-t py-2 border-gray-300 flex justify-end">
+                <span>Total : 550000</span>
+            </div>
+            <div className="text-sm border-t py-2 border-gray-300 flex flex-row justify-around">
+                <Button title="View Cart" />
+                <Button title="Check out" />
+            </div>
         </div>
     )
 }
