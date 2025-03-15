@@ -4,10 +4,12 @@ import logo from "../../images/logo.png"
 import Footer from "../footer/footer";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import BuyBoxModal from "../modal/modal";
 
 const HeaderLayout = ({ children } : {children : React.ReactNode} ) => {
 
     const [isMenuOpen, setMenuOpen] = useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
 
     const MenuItems = [
         {title: "Home" , link:""},
@@ -68,14 +70,26 @@ const HeaderLayout = ({ children } : {children : React.ReactNode} ) => {
                     </div>
 
                     {/* BuyBox Section */}
-                    <div className="relative">
-                        <button className="cursor-pointer text-3xl">
+                    <div className="relative"
+                        onMouseEnter={() => setModalOpen(true)}
+                        onMouseLeave={() => setModalOpen(false)}>
+                        <button className={`cursor-pointer text-3xl`}>
                             <FaShoppingCart />
                         </button>
                         <div className="absolute -top-2 -right-2 text-white bg-red-600 rounded-full w-5 h-5 flex items-center justify-center text-xs">
                             <span>02</span>
                         </div>
+                                           
                     </div>
+                    {isModalOpen && (
+                            <div
+                                className="absolute top-10 right-5 w-xs bg-white shadow-lg p-4 rounded-md z-2000"
+                                onMouseEnter={() => setModalOpen(true)} 
+                                onMouseLeave={() => setModalOpen(false)}
+                            >
+                                <BuyBoxModal/>
+                            </div>
+                        )} 
                 </div>
             </div>
             <div className={`inset-x-0 top-0 flex w-full flex-col text-white bg-amber-400 relative md:hidden px-2 py-4 gap-y-2 items-center`}>
