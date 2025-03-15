@@ -1,4 +1,5 @@
 import { TbInnerShadowBottomLeftFilled } from "react-icons/tb"
+import Button from "../common/button"
 
 const Footer = () => {
 
@@ -47,15 +48,10 @@ const Footer = () => {
                         ))}
                     </ul>
                 </div>
-                <div className="w-full flex flex-col sm:col-span-2 md:col-span-4 lg:col-span-2">
+                <div className="w-full flex flex-col sm:col-span-2 md:col-span-4 lg:col-span-2 max-w-sm">
                     <h1 className="mb-5">MOBILE NEWSLETTER</h1>
                     <input type="text" placeholder="Enter your number" className="w-full h-10 bg-white text-xs max-w-sm pl-4 mb-4"/>
-                    <button type="button" className="px-4 py-2 w-30 bg-white text-xs relative group overflow-hidden cursor-pointer">
-                        Subscribe
-                        <span className="absolute left-[-100%] top-0 bottom-0 bg-amber-500 text-white px-2 py-1 transition-all duration-300 group-hover:left-0 w-full flex justify-center items-center">
-                            Subscribe
-                        </span>
-                    </button>
+                    <Button title="Subscribe" />
 
                 </div>
             </div>

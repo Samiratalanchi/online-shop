@@ -7,6 +7,7 @@ import product5 from "../../../images/product5.jpg"
 import product6 from "../../../images/product6.jpg"
 import product7 from "../../../images/product7.jpg"
 import product8 from "../../../images/product8.jpg"
+import Button from "../../common/button"
 
 const FeaturedProduct = ({title}:{title:string}) => {
 
@@ -54,12 +55,7 @@ const FeaturedProduct = ({title}:{title:string}) => {
                                 <div className="absolute text-sm right-3 top-3">${item.price}</div>
                             </div>
                             <h1 className="text-center font-medium">{item.name}</h1>
-                            <button className="relative group text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 overflow-hidden">
-                                Buy now
-                                <span className="absolute left-[-100%] top-0 bottom-0 bg-amber-500 text-white px-2 py-1 transition-all duration-300 group-hover:left-0 w-full">
-                                    Buy now
-                                </span>
-                            </button>
+                            <Button title="Buy now" />
                         </div>
                     ))}
                 </div>

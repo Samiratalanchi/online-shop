@@ -1,5 +1,6 @@
 import bannerS from "../../../images/banner-s.jpg"
 import bannerB from "../../../images/banner-b.jpg"
+import Button from "../../common/button";
 
 const Banner = () => {
     return (
@@ -13,12 +14,7 @@ const Banner = () => {
                     <p className="text-xs">Category</p>
                 </div>
                 <div className="absolute lg:right-5 right-8 bottom-5">
-                    <button className="text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 relative group overflow-hidden">
-                        Buy now
-                        <span className="absolute left-[-100%] top-0 bottom-0 bg-amber-500 text-white px-2 py-1 transition-all duration-300 group-hover:left-0 w-full flex justify-center items-center">
-                            Buy now
-                        </span>
-                    </button>
+                    <Button title="Buy now" />
                 </div>
             
             </div>

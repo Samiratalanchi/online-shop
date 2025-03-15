@@ -11,6 +11,7 @@ import product10 from "../../../images/product10.jpg"
 import product11 from "../../../images/product11.jpg"
 import product12 from "../../../images/product12.jpg"
 import { useEffect, useState } from "react"
+import Button from "../../common/button"
 
 const FeaturedProduct = ({title}:{title:string}) => {
 
@@ -88,12 +89,7 @@ const FeaturedProduct = ({title}:{title:string}) => {
                                     <div className="absolute text-sm right-3 top-3">${item.price}</div>
                                 </div>
                                 <h1 className="text-center font-medium">{item.name}</h1>
-                                <button className="relative group text-sm px-2 py-1 cursor-pointer bg-gray-100 border border-gray-300 overflow-hidden">
-                                    Buy now
-                                    <span className="absolute left-[-100%] top-0 bottom-0 bg-amber-500 text-white px-2 py-1 transition-all duration-300 group-hover:left-0 w-full">
-                                        Buy now
-                                    </span>
-                                </button>
+                                <Button title="Buy now" />
                             </div>
                         ))}
                     </div>
