@@ -15,63 +15,68 @@ import product10 from "../../images/product10.jpg"
 import product11 from "../../images/product11.jpg"
 import product12 from "../../images/product12.jpg"
 
-const Products = () => {
+const Products = ({activeCath,activeSubCath} : {activeCath: string, activeSubCath: string}) => {
     const products = [
-        { name: "Product Name", price: 56000, badge: "New", pic: product1 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product2 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product3 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product4 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product5 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product6 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product7 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product8 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product9 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product10 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product11 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product12 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product1 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product2 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product3 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product4 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product5 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product6 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product7 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product8 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product9 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product10 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product11 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product12 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product1 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product2 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product3 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product4 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product5 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product6 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product7 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product8 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product9 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product10 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product11 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product12 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product1 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product2 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product3 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product4 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product5 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product6 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product7 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product8 },
-        { name: "Product Name", price: 56000, badge: "Sale", pic: product9 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product10 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product11 },
-        { name: "Product Name", price: 56000, badge: "New", pic: product12 }
+        { name: "Product Name", price: 56000, badge: "New", pic: product1, category: "Chair", subcategory: "chair1" },
+        { name: "Product Name", price: 56000, badge: "Sale", pic: product2, category: "Chair", subcategory: "chair2" },
+        { name: "Product Name", price: 56000, badge: null, pic: product3, category: "Chair", subcategory: "chair3" },
+        
+        { name: "Product Name", price: 56000, badge: "New", pic: product4, category: "Furniture", subcategory: "furniture1" },
+        { name: "Product Name", price: 56000, badge: "Sale", pic: product5, category: "Furniture", subcategory: "furniture2" },
+        { name: "Product Name", price: 56000, badge: null, pic: product6, category: "Furniture", subcategory: "furniture3" },
+        { name: "Product Name", price: 56000, badge: "New", pic: product7, category: "Furniture", subcategory: "furniture4" },
+        { name: "Product Name", price: 56000, badge: null, pic: product8, category: "Furniture", subcategory: "furniture5" },
+      
+        { name: "Product Name", price: 56000, badge: "Sale", pic: product9, category: "Accesories", subcategory: "acc1" },
+        { name: "Product Name", price: 56000, badge: "New", pic: product10, category: "Accesories", subcategory: "acc2" },
+      
+        { name: "Product Name", price: 56000, badge: null, pic: product11, category: "Table", subcategory: "table1" },
+        { name: "Product Name", price: 56000, badge: "New", pic: product12, category: "Table", subcategory: "table2" },
+        
+        { name: "Product Name", price: 56000, badge: "Sale", pic: product1, category: "Table", subcategory: "table3" },
+        { name: "Product Name", price: 56000, badge: null, pic: product2, category: "Table", subcategory: "table4" },
+        
+        { name: "Product Name", price: 56000, badge: "New", pic: product3, category: "Desk", subcategory: "desk1" },
+        { name: "Product Name", price: 56000, badge: "Sale", pic: product4, category: "Desk", subcategory: "desk2" },
+        { name: "Product Name", price: 56000, badge: null, pic: product5, category: "Desk", subcategory: "desk3" },
+        { name: "Product Name", price: 56000, badge: "New", pic: product6, category: "Desk", subcategory: "desk4" },
+      
+        { name: "Product Name", price: 56000, badge: "Sale", pic: product7, category: "Chair", subcategory: "chair1" },
+        { name: "Product Name", price: 56000, badge: null, pic: product8, category: "Chair", subcategory: "chair2" },
+        { name: "Product Name", price: 56000, badge: "New", pic: product9, category: "Chair", subcategory: "chair3" },
+      
+        { name: "Product Name", price: 56000, badge: null, pic: product10, category: "Furniture", subcategory: "furniture1" },
+        { name: "Product Name", price: 56000, badge: "New", pic: product11, category: "Furniture", subcategory: "furniture2" },
+        { name: "Product Name", price: 56000, badge: "Sale", pic: product12, category: "Furniture", subcategory: "furniture3" },
+      
+        { name: "Product Name", price: 56000, badge: null, pic: product1, category: "Furniture", subcategory: "furniture4" },
+        { name: "Product Name", price: 56000, badge: "New", pic: product2, category: "Furniture", subcategory: "furniture5" },
+      
+        { name: "Product Name", price: 56000, badge: "Sale", pic: product3, category: "Accesories", subcategory: "acc1" },
+        { name: "Product Name", price: 56000, badge: null, pic: product4, category: "Accesories", subcategory: "acc2" },
+      
+        { name: "Product Name", price: 56000, badge: "New", pic: product5, category: "Table", subcategory: "table1" },
+        { name: "Product Name", price: 56000, badge: null, pic: product6, category: "Table", subcategory: "table2" },
+        { name: "Product Name", price: 56000, badge: "Sale", pic: product7, category: "Table", subcategory: "table3" },
+        { name: "Product Name", price: 56000, badge: "New", pic: product8, category: "Table", subcategory: "table4" },
+      
+        { name: "Product Name", price: 56000, badge: null, pic: product9, category: "Desk", subcategory: "desk1" },
+        { name: "Product Name", price: 56000, badge: "New", pic: product10, category: "Desk", subcategory: "desk2" },
+        { name: "Product Name", price: 56000, badge: "Sale", pic: product11, category: "Desk", subcategory: "desk3" },
+        { name: "Product Name", price: 56000, badge: null, pic: product12, category: "Desk", subcategory: "desk4" },
     ]
 
+    const finalProducts = activeSubCath === ""
+    ? products.filter(item => item.category === activeCath)
+    : products.filter(item => item.subcategory === activeSubCath);
+
+      
+
     const pageSize = 12
-    const pageCount = Math.ceil(products.length / pageSize)
+    const pageCount = Math.ceil(finalProducts.length / pageSize)
     const [pageNumber, setPageNumber] = useState(1)
 
-    const displayedProducts = products.slice((pageNumber - 1) * pageSize, pageNumber * pageSize)
+    const displayedProducts = finalProducts.slice((pageNumber - 1) * pageSize, pageNumber * pageSize)
 
     const getPageRange = () => {
         if (pageNumber <= 2) return [1, 2, 3]
@@ -89,7 +94,9 @@ const Products = () => {
                         <div key={index} className="flex flex-col gap-y-3 p-3 bg-white shadow-md rounded-lg cursor-pointer hover:shadow-xl">
                             <div className="relative">
                                 <img src={item.pic} className="w-full" />
-                                <div className={`absolute text-[10px] rounded-md py-1 px-2 text-white ${item.badge === "New" ? "bg-amber-300" : "bg-red-400"} left-3 top-3`}>{item.badge}</div>
+                                {item.badge &&
+                                    <div className={`absolute text-[10px] rounded-md py-1 px-2 text-white ${item.badge === "New" ? "bg-amber-300" : "bg-red-400"} left-3 top-3`}>{item.badge}</div>
+                                }
                                 <div className="absolute text-sm right-3 top-3">${item.price}</div>
                             </div>
                             <h1 className="text-center font-medium">{item.name}</h1>

@@ -13,7 +13,8 @@ const ProductGrid = () => {
         {name: "Desk", items: ["desk1","desk2","desk3","desk4"]},
     ]
 
-    const [activeCath,setActiveCath] = useState("Chair")
+    const [activeCath,setActiveCath] = useState("Chair");
+    const [activeSubCath, setActiveSubCath] = useState("");
 
     return (
         <HeaderLayout>
@@ -38,14 +39,20 @@ const ProductGrid = () => {
                                             className={`cursor-pointer hover:text-amber-300 ${
                                             activeCath === item.name ? "text-amber-400" : ""
                                             }`}
-                                            onClick={() => setActiveCath(item.name)}
+                                            onClick={() => {
+                                                setActiveCath(item.name)
+                                                setActiveSubCath("")
+                                            }}
                                         >
                                             {item.name}
                                         </div>
                                         {activeCath === item.name &&
                                             <ul className="ml-4 text-sm text-gray-600">
                                             {item.items.map((x, index) => (
-                                            <li key={x + index} className="px-2 cursor-pointer text-gray-400 hover:text-amber-300">
+                                            <li key={x + index}
+                                                className="px-2 cursor-pointer text-gray-400 hover:text-amber-300"
+                                                onClick={() => setActiveSubCath(x)}
+                                            >
                                                 {x}
                                             </li>
                                             ))}
@@ -59,7 +66,7 @@ const ProductGrid = () => {
                         </div>  
                     </div>
                     <div className="md:w-3/4 w-full -my-20 md:my-0">
-                        <Products />
+                        <Products activeCath={activeCath} activeSubCath={activeSubCath} />
                     </div>
                 </div>
             </main>
