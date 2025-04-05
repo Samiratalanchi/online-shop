@@ -1,7 +1,7 @@
 import { IoIosSearch } from "react-icons/io"
 import HeaderLayout from "../../components/headerLayout/headerLayout"
-import ProductGridComponent from "../../components/homePage/productGrid/productGrid"
 import { useState } from "react"
+import Products from "../../components/productGrid/products"
 
 const ProductGrid = () => {
 
@@ -18,8 +18,8 @@ const ProductGrid = () => {
     return (
         <HeaderLayout>
             <main className="relative justify-center ">
-                <div className="flex flex-row mx-auto max-w-6xl items-start gap-x-5">
-                    <div className="flex flex-col w-1/4 gap-y-5 my-15">
+                <div className="flex md:flex-row flex-col mx-auto max-w-6xl items-start gap-x-5 gap-y-5">
+                    <div className="flex flex-col md:w-1/4 w-5/6 mx-auto gap-y-5 my-15">
                         <div className="flex flex-row bg-white justify-between items-center px-3">
                             <input type="text" placeholder="Search here..." className="h-10 bg-white text-xs text-gray-600 focus:outline-none focus:ring-0 focus:border-none" />
                             <button className=" text-gray-600 cursor-pointer">
@@ -58,8 +58,8 @@ const ProductGrid = () => {
                             </div>
                         </div>  
                     </div>
-                    <div className="w-3/4">
-                        <ProductGridComponent />
+                    <div className="md:w-3/4 w-full -my-20 md:my-0">
+                        <Products />
                     </div>
                 </div>
             </main>

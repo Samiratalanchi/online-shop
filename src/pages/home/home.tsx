@@ -3,7 +3,7 @@ import HeaderLayout from "../../components/headerLayout/headerLayout"
 import Banner from "../../components/homePage/banner/banner"
 import FeaturedProduct from "../../components/homePage/featuredProduct/featuredProduct"
 import DiscountBanner from "../../components/homePage/discountBanner/discountBanner"
-import ProductGridComponent from "../../components/homePage/productGrid/productGrid"
+import PurchaseOnline from "../../components/homePage/purchaseOnline/purchaseOnline"
 import BrandBox from "../../components/homePage/brandBox/brandBox"
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
                 <Banner />
                 <FeaturedProduct title="Featured Products" />
                 <DiscountBanner />
-                <ProductGridComponent title="Purchase Online" />
+                <PurchaseOnline title="Purchase Online" />
                 <BrandBox />
             </main>
         </HeaderLayout>

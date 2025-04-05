@@ -9,7 +9,7 @@ import product7 from "../../../images/product7.jpg"
 import product8 from "../../../images/product8.jpg"
 import Button from "../../common/button"
 
-const ProductGridComponent = ({title}:{title?:string}) => {
+const PurchaseOnline = ({title}:{title?:string}) => {
 
     const [activeTab, setActiveTab] = useState("New Arrivals")
 
@@ -67,4 +67,4 @@ const ProductGridComponent = ({title}:{title?:string}) => {
     </div>
     );
 }
-export default ProductGridComponent;
+export default PurchaseOnline;
