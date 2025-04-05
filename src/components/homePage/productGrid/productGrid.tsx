@@ -9,7 +9,7 @@ import product7 from "../../../images/product7.jpg"
 import product8 from "../../../images/product8.jpg"
 import Button from "../../common/button"
 
-const FeaturedProduct = ({title}:{title:string}) => {
+const ProductGridComponent = ({title}:{title?:string}) => {
 
     const [activeTab, setActiveTab] = useState("New Arrivals")
 
@@ -28,22 +28,25 @@ const FeaturedProduct = ({title}:{title:string}) => {
 
     return (
         <div className="my-15 mb-30 w-full">
-        <div className="text-center font-bold text-2xl">{title}</div>
-        <ul className="list-none text-xs flex flex-row gap-x-5 justify-center my-5 ">
-            {tabs.map((tab) => (
-                <li
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`cursor-pointer p-1 pb-2 ${
-                        activeTab === tab
-                            ? "text-amber-400 border-b-2 border-amber-400"
-                            : "text-gray-600"
-                    }`}
-                >
-                    {tab}
-                </li>
-            ))}
-        </ul>
+        {title && 
+            <>
+                <div className="text-center font-bold text-2xl">{title}</div>
+                <ul className="list-none text-xs flex flex-row gap-x-5 justify-center my-5 ">
+                    {tabs.map((tab) => (
+                        <li
+                            key={tab}
+                            onClick={() => setActiveTab(tab)}
+                            className={`cursor-pointer p-1 pb-2 ${activeTab === tab
+                                    ? "text-amber-400 border-b-2 border-amber-400"
+                                    : "text-gray-600"}`}
+                        >
+                            {tab}
+                        </li>
+                    ))}
+                </ul>
+            </>
+        }
+        
         <div className="flex flex-col justify-center items-center my-10">
             <div className="flex flex-row items-center lg:gap-x-3 gap-x-0 w-full justify-center">
                 <div className={`grid gap-5 md:w-full w-4/5 max-w-6xl items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}>
@@ -64,4 +67,4 @@ const FeaturedProduct = ({title}:{title:string}) => {
     </div>
     );
 }
-export default FeaturedProduct;
+export default ProductGridComponent;

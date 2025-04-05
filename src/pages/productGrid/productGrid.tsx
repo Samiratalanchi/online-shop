@@ -1,10 +1,67 @@
+import { IoIosSearch } from "react-icons/io"
 import HeaderLayout from "../../components/headerLayout/headerLayout"
+import ProductGridComponent from "../../components/homePage/productGrid/productGrid"
+import { useState } from "react"
 
 const ProductGrid = () => {
+
+    const cathegories = [
+        {name: "Chair", items: ["chair1","chair2","chair3"]},
+        {name: "Furniture", items: ["furniture1","furniture2","furniture3","furniture4","furniture5"]},
+        {name: "Accesories", items: ["acc1","acc2"]},
+        {name:"Table", items: ["table1","table2","table3","table4"]},
+        {name: "Desk", items: ["desk1","desk2","desk3","desk4"]},
+    ]
+
+    const [activeCath,setActiveCath] = useState("Chair")
+
     return (
         <HeaderLayout>
-            <main className="relative">
-
+            <main className="relative justify-center ">
+                <div className="flex flex-row mx-auto max-w-6xl items-start gap-x-5">
+                    <div className="flex flex-col w-1/4 gap-y-5 my-15">
+                        <div className="flex flex-row bg-white justify-between items-center px-3">
+                            <input type="text" placeholder="Search here..." className="h-10 bg-white text-xs text-gray-600 focus:outline-none focus:ring-0 focus:border-none" />
+                            <button className=" text-gray-600 cursor-pointer">
+                                <IoIosSearch />
+                            </button>
+                        </div>
+                        <div className="flex flex-col bg-white items-center">
+                            <div className="border-b-2 border-gray-200 w-full">
+                                <p className="p-3 text-gray-600">CATEGORIES</p>
+                            </div>
+                            <div className="w-full my-3">
+                                <ul className="px-3 text-gray-600">
+                                {cathegories.map((item) => (
+                                    <li key={item.name} className="mb-2">
+                                        <div
+                                            className={`cursor-pointer hover:text-amber-300 ${
+                                            activeCath === item.name ? "text-amber-400" : ""
+                                            }`}
+                                            onClick={() => setActiveCath(item.name)}
+                                        >
+                                            {item.name}
+                                        </div>
+                                        {activeCath === item.name &&
+                                            <ul className="ml-4 text-sm text-gray-600">
+                                            {item.items.map((x, index) => (
+                                            <li key={x + index} className="px-2 cursor-pointer text-gray-400 hover:text-amber-300">
+                                                {x}
+                                            </li>
+                                            ))}
+                                        </ul>
+                                        }
+                                        
+                                    </li>
+                                ))}
+                                </ul>
+                            </div>
+                        </div>  
+                    </div>
+                    <div className="w-3/4">
+                        <ProductGridComponent />
+                    </div>
+                </div>
             </main>
         </HeaderLayout>
     )
